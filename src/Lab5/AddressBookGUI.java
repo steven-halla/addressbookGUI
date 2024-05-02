@@ -60,8 +60,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
             this.getRootPane().setDefaultButton(addJButton);
             this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/address_small.jpg"));
             //read from text file and fill ArrayList
-            readFromTextFile(PERSONS_TEXT_FILE);
-            createDB();
+//            readFromTextFile(PERSONS_TEXT_FILE);
+//            createDB();
             String url = DB_URL;
             String user = USER;
             String password = PASS;
@@ -241,13 +241,14 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     {
         try
         { 
+            //42:03
             String url = DB_URL;
             String user = USER;
             String password = PASS;
             Connection conn = DriverManager.getConnection(url, user, password);
             myPerson = new Person();
             
-            String query = "SELECT * FROM AddressBook WHERE personID - ?";
+            String query = "SELECT * FROM AddressBook WHERE personID = ?";
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setInt(1, id);
             ResultSet results = pstmt.executeQuery();
@@ -284,8 +285,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         titleJLabel = new javax.swing.JLabel();
         displayJPanel = new javax.swing.JPanel();
@@ -398,24 +398,19 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         displayJPanel.add(zipJLabel);
 
         zipJFormattedTextField.setBackground(new java.awt.Color(240, 240, 240));
-        try
-        {
+        try {
             zipJFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
-        } catch (java.text.ParseException ex)
-        {
+        } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         zipJFormattedTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         zipJFormattedTextField.setToolTipText("Exactly 5 digits");
         zipJFormattedTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        zipJFormattedTextField.addFocusListener(new java.awt.event.FocusAdapter()
-        {
-            public void focusGained(java.awt.event.FocusEvent evt)
-            {
+        zipJFormattedTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
                 zipJFormattedTextFieldFocusGained(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt)
-            {
+            public void focusLost(java.awt.event.FocusEvent evt) {
                 zipJFormattedTextFieldFocusLost(evt);
             }
         });
@@ -429,10 +424,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         addJButton.setMnemonic('A');
         addJButton.setText("Add");
         addJButton.setToolTipText("Add new record");
-        addJButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        addJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
             }
         });
@@ -443,10 +436,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         editJButton.setMnemonic('E');
         editJButton.setText("Edit");
         editJButton.setToolTipText("Edit current record");
-        editJButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        editJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editJButtonActionPerformed(evt);
             }
         });
@@ -457,10 +448,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         deleteJButton.setMnemonic('D');
         deleteJButton.setText("Delete");
         deleteJButton.setToolTipText("Delete current record");
-        deleteJButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        deleteJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteJButtonActionPerformed(evt);
             }
         });
@@ -471,10 +460,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         quitJButton.setMnemonic('Q');
         quitJButton.setText("Quit");
         quitJButton.setToolTipText("End application");
-        quitJButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        quitJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quitJButtonActionPerformed(evt);
             }
         });
@@ -488,10 +475,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         firstJButton.setMnemonic('s');
         firstJButton.setText("<<");
         firstJButton.setToolTipText("First");
-        firstJButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        firstJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstJButtonActionPerformed(evt);
             }
         });
@@ -502,10 +487,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         previousJButton.setMnemonic('r');
         previousJButton.setText("<");
         previousJButton.setToolTipText("Previous");
-        previousJButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        previousJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 previousJButtonActionPerformed(evt);
             }
         });
@@ -516,10 +499,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         nextJButton.setMnemonic('N');
         nextJButton.setText(">");
         nextJButton.setToolTipText("Next");
-        nextJButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        nextJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextJButtonActionPerformed(evt);
             }
         });
@@ -530,10 +511,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         lastJButton.setMnemonic('L');
         lastJButton.setText(">>");
         lastJButton.setToolTipText("Last");
-        lastJButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        lastJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastJButtonActionPerformed(evt);
             }
         });
@@ -547,10 +526,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         printMenuItem.setMnemonic('P');
         printMenuItem.setText("Print Form");
         printMenuItem.setToolTipText("Print Form as GUI");
-        printMenuItem.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        printMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 printMenuItemActionPerformed(evt);
             }
         });
@@ -559,10 +536,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         quitJMenuItem.setMnemonic('Q');
         quitJMenuItem.setText("Quit");
         quitJMenuItem.setToolTipText("");
-        quitJMenuItem.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        quitJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quitJMenuItemActionPerformed(evt);
             }
         });
@@ -576,10 +551,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         aboutJMenuItem.setMnemonic('A');
         aboutJMenuItem.setText("About");
         aboutJMenuItem.setToolTipText("Show About form");
-        aboutJMenuItem.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        aboutJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutJMenuItemActionPerformed(evt);
             }
         });
@@ -599,7 +572,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
                     .addComponent(controlJPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(navigationJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
                     .addComponent(displayJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(titleJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE))
+                    .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(personNumberJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -652,6 +625,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     private void nextJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nextJButtonActionPerformed
     {//GEN-HEADEREND:event_nextJButtonActionPerformed
         try
+            //47.26
         {
                int passing = 0;
             currentID = Integer.parseInt(personNumberJLabel.getText());
@@ -666,6 +640,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
             String query = "SELECT * FROM AddressBook";
             
             ResultSet rs = stmt.executeQuery(query);
+            
             rs.next();
             passing = rs.getInt("personID");
             while(passing != currentID)
@@ -737,7 +712,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
 //                System.out.println(rs.getInt("personID"));
                 if(currentID == rs.getInt("personID"))
                 {
-                    rs.next();
+                    rs.previous();
                     System.out.println(rs.getInt("personID"));
                     break;
                 }
@@ -745,15 +720,15 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
                 passing = rs.getInt("personID");
                 
             }
-            if(rs.isLast())
+            if(rs.isFirst())
             {
-                rs.first();
+                rs.last();
                 currentID = rs.getInt("personID");
             }
             else
             {
                 
-            rs.next();
+            rs.previous();
             currentID = rs.getInt("personID");
             }
             Person foundPerson = searchPerson(currentID);
@@ -783,7 +758,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void lastJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_lastJButtonActionPerformed
     {//GEN-HEADEREND:event_lastJButtonActionPerformed
-        // move to first AddressBook
+        // move to first AddressBook 54:23
         try
         {
               String url = DB_URL;
@@ -798,6 +773,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
             ResultSet rs = stmt.executeQuery(query);
             rs.last();
             currentID = rs.getInt("personID");
+            Person myPerson = searchPerson(currentID);
             display(myPerson);
         }
         catch(Exception exp)
@@ -820,7 +796,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void firstJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_firstJButtonActionPerformed
     {//GEN-HEADEREND:event_firstJButtonActionPerformed
-        // move to first AddressBook
+        // move to first AddressBook 45:53
         try
         {
             String url = DB_URL;

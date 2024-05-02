@@ -84,7 +84,7 @@
                   <Component id="controlJPanel" alignment="1" max="32767" attributes="0"/>
                   <Component id="navigationJPanel" alignment="0" pref="357" max="32767" attributes="0"/>
                   <Component id="displayJPanel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="titleJLabel" pref="357" max="32767" attributes="0"/>
+                  <Component id="titleJLabel" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="personNumberJLabel" min="-2" pref="26" max="-2" attributes="0"/>
