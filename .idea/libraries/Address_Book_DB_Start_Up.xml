@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Address_Book_DB_Start_Up">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/Address_Book_DB_Start_Up.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

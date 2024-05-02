@@ -61,7 +61,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
             this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/address_small.jpg"));
             //read from text file and fill ArrayList
             readFromTextFile(PERSONS_TEXT_FILE);
-//            createDB();
+            createDB();
             String url = DB_URL;
             String user = USER;
             String password = PASS;
@@ -196,7 +196,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
             }
             stmt.executeUpdate("CREATE TABLE AddressBook (personID"
                     + " SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT, firstName"
-                    + " VARCHAR(20), lastname VARCHAR(20), age INTEGER,"
+                    + " VARCHAR(20), lastName VARCHAR(20), age INTEGER,"
                     + " address VARCHAR(30), city"
                     + " VARCHAR(20), state VARCHAR(2), zip VARCHAR(5),"
                     + " PRIMARY KEY (personID))");
@@ -207,12 +207,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
                         (
                         "INSERT INTO AddressBook VALUES("
                         + friends.get(i).getID() + ","
-                        + "'" + friends.get(i).getFirstName() +"',"
-                        + "'" + friends.get(i).getFirstName() +"',"
+                        + "'" + friends.get(i).getFirstName() + "',"
+                        + "'" + friends.get(i).getLastName() + "',"
                         + friends.get(i).getAge() + ","
-                        + "'" + friends.get(i).getAddress() +"'"  + ","
-                        + "'" + friends.get(i).getCity() +"'"  + ","
-                        + "'" + friends.get(i).getState() +"'"  + ","
+                        + "'" + friends.get(i).getAddress() + "'"  + ","
+                        + "'" + friends.get(i).getCity() + "'"  + ","
+                        + "'" + friends.get(i).getState() + "'"  + ","
                         + "'" + friends.get(i).getZip() + "')"
                         );                       
                                                                  
@@ -1036,8 +1036,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     public static void main(String args[])
     {
         // Show splash screen
-        Splash mySplash = new Splash(4000);     // duration = 5 seconds
-        mySplash.showSplash();                  // show splash screen   
+//        Splash mySplash = new Splash(4000);     // duration = 5 seconds
+//        mySplash.showSplash();                  // show splash screen   
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
