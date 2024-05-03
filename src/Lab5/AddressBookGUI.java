@@ -177,6 +177,8 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
      *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
     private void createDB()
+            
+            //5 min mark video 2 touches on this
     {   
         try
         {            
@@ -839,7 +841,50 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         String message = "Person not added.";
         try
         {
+            //video 2 12:43
+            AddPerson myAddForm = new AddPerson(this, true);
+            myAddForm.setVisible(true);
+            int lastIndex = 0;
+            Person newPerson = myAddForm.getPerson();
             
+            if(newPerson != null && !exists(newPerson))
+            {
+                String url = DB_URL;
+                String user = USER;
+                String password = PASS;
+                
+                Connection con = DriverManager.getConnection(url, user, password);
+                Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY);
+                String query = "SELECT * FROM AddressBook";
+                
+                ResultSet rs = stmt.executeQuery(query);
+                rs.last();
+                
+                lastIndex = sizeOfDB;
+                newPerson.setID(lastIndex + 1);
+                
+                stmt.executeUpdate
+                        ("INSERT INTO AddressBook VALUES (" + newPerson.getID() + ",'" +
+                                newPerson.getFirstName() + "','" + newPerson.getLastName() +
+                                "'," + newPerson.getAge() + ",'" + newPerson.getAddress() +
+                                "','" + newPerson.getCity() + "','" + newPerson.getState() +
+                                "','" + newPerson.getZip() + "')"
+
+                                );
+//                friends.add(newPerson);
+                display(newPerson);
+                sizeOfDB++;
+                con.close();
+                        
+                
+            }
+            else 
+            {
+                message = "Person not added";
+                newPerson.setID(lastIndex);
+                display(newPerson);
+            }
         }
         catch(NullPointerException exp)
         {
@@ -867,7 +912,43 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     private void deleteJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_deleteJButtonActionPerformed
     {//GEN-HEADEREND:event_deleteJButtonActionPerformed
         
+        //25.28 video 2
+        int index = Integer.parseInt(personNumberJLabel.getText());
+        Person personToDelete = searchPerson(index);
+        int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delte "
+        + personToDelete.getFirstName() + " " + personToDelete.getLastName()
+        + "?", "Delete person ", JOptionPane.YES_NO_OPTION);
         
+        if(result == JOptionPane.YES_OPTION)
+        {
+            try
+            {
+                String url = DB_URL;
+                String user = USER;
+                String password = PASS;
+                Connection conn = DriverManager.getConnection(url, user, password);
+                Statement stmt = conn.createStatement();
+                
+                String query = "DELETE FROM AddressBook WHERE personID = ?";
+                PreparedStatement pstmt = conn.prepareStatement(query);
+                pstmt.setInt(1, index);
+                pstmt.execute();  
+                query = "SELECT * FROM AddressBook";
+                ResultSet rs = stmt.executeQuery(query);
+                rs.next();
+                index = rs.getInt("personID");
+                
+                display(searchPerson(index));
+                conn.close();
+                
+            }
+            catch(SQLException exp)
+            {
+                exp.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error deleting.",
+                        "ERROR!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_deleteJButtonActionPerformed
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -885,11 +966,60 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         String message = "Person not edited.";
         try
         {
-            
+           currentID = Integer.parseInt(personNumberJLabel.getText());
+           myPerson = searchPerson(currentID);
+           
+           AddPerson myEditForm = new AddPerson(myPerson);
+           myEditForm.setVisible(true);
+           
+           Person editPerson = myEditForm.getPerson();
+           editPerson.setID(currentID);
+           
+           if(editPerson != null)
+           {
+               myPerson.setID(currentID);
+               myPerson.setFirstName(editPerson.getFirstName());
+               myPerson.setLastName(editPerson.getLastName());
+               myPerson.setAge(editPerson.getAge());
+               myPerson.setAddress(editPerson.getAddress());
+               myPerson.setCity(editPerson.getCity());
+               myPerson.setState(editPerson.getState());
+               myPerson.setZip(editPerson.getZip());
+               
+               String url = DB_URL;
+               String user = USER;
+               String password = PASS;
+               Connection conn = DriverManager.getConnection(url, user, password);
+               Statement stmt = conn.createStatement();
+                    
+               
+               String query = "UPDATE AddressBook SET firstName = " + "," +
+                       myPerson.getFirstName() + "', lastName = '" +
+                       myPerson.getLastName() + "', age = '" +
+                       myPerson.getAge() + "', address = '" +
+                       myPerson.getAddress() + "', city = '" +
+                       myPerson.getCity() + "', state = '" +
+                       myPerson.getState() + "', zip = '" +
+                       myPerson.getZip() + "', where personID = '" +
+                       myPerson.getID();
+                
+                stmt.executeUpdate(query);
+                display(myPerson);
+                stmt.close();
+                conn.close();
+                
+                
+               
+           }
+           else 
+           {
+                 JOptionPane.showMessageDialog(null, message, 
+                    "Error!", JOptionPane.ERROR_MESSAGE);
+           }
         }
-        catch(Exception exp)
+        catch(SQLException exp)
         {
-            exp.printStackTrace();
+//            exp.printStackTrace();
             JOptionPane.showMessageDialog(null, message, 
                     "Error!", JOptionPane.ERROR_MESSAGE);
         }
