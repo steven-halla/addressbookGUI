@@ -993,14 +993,14 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
                Statement stmt = conn.createStatement();
                     
                
-               String query = "UPDATE AddressBook SET firstName = " + "," +
+               String query = "UPDATE AddressBook SET firstName = " + "'" +
                        myPerson.getFirstName() + "', lastName = '" +
-                       myPerson.getLastName() + "', age = '" +
-                       myPerson.getAge() + "', address = '" +
+                       myPerson.getLastName() + "', age = " +
+                       myPerson.getAge() + ", address = '" +
                        myPerson.getAddress() + "', city = '" +
                        myPerson.getCity() + "', state = '" +
                        myPerson.getState() + "', zip = '" +
-                       myPerson.getZip() + "', where personID = '" +
+                       myPerson.getZip() + "' where personID = " +
                        myPerson.getID();
                 
                 stmt.executeUpdate(query);
