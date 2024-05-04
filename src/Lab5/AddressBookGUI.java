@@ -228,6 +228,10 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
                     "SQL Error!", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    
+   
+
 
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      *<pre>
@@ -316,6 +320,9 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         nextJButton = new javax.swing.JButton();
         lastJButton = new javax.swing.JButton();
         personNumberJLabel = new javax.swing.JLabel();
+        searchJTextField = new javax.swing.JTextField();
+        searchJLabel = new javax.swing.JLabel();
+        searchJButton = new javax.swing.JButton();
         personJMenuBar = new javax.swing.JMenuBar();
         fileJMenu = new javax.swing.JMenu();
         printMenuItem = new javax.swing.JMenuItem();
@@ -522,6 +529,23 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
 
         personNumberJLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        searchJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchJTextFieldActionPerformed(evt);
+            }
+        });
+
+        searchJLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        searchJLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        searchJLabel.setText("Search");
+
+        searchJButton.setText("search");
+        searchJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchJButtonActionPerformed(evt);
+            }
+        });
+
         fileJMenu.setMnemonic('F');
         fileJMenu.setText("File");
 
@@ -574,23 +598,35 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
                     .addComponent(controlJPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(navigationJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
                     .addComponent(displayJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(searchJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(searchJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(personNumberJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(personNumberJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchJButton))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(searchJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(personNumberJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(displayJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(titleJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(personNumberJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchJLabel)
+                            .addComponent(searchJButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(displayJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(navigationJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1104,6 +1140,93 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         aboutWindow.setVisible(true);
     }//GEN-LAST:event_aboutJMenuItemActionPerformed
 
+    private void searchJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJTextFieldActionPerformed
+        // TODO add your handling code here:
+           String searchText = searchJTextField.getText().trim();
+    if (searchText.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please enter search criteria!", "No Search Criteria", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // SQL Query to search the database
+    String query = "SELECT * FROM AddressBook WHERE firstName LIKE ? OR lastName LIKE ? OR city LIKE ? OR state LIKE ?";
+
+    try {
+        Connection con = DriverManager.getConnection(DB_URL, USER, PASS);
+        PreparedStatement pstmt = con.prepareStatement(query);
+
+        // Setting the parameters for the prepared statement
+        pstmt.setString(1, "%" + searchText + "%");
+        pstmt.setString(2, "%" + searchText + "%");
+        pstmt.setString(3, "%" + searchText + "%");
+        pstmt.setString(4, "%" + searchText + "%");
+
+        ResultSet rs = pstmt.executeQuery();
+
+        // Check if there are results
+        if (!rs.next()) {
+            JOptionPane.showMessageDialog(null, "No results found!", "No Results", JOptionPane.INFORMATION_MESSAGE);
+            rs.close();
+            pstmt.close();
+            con.close();
+            return;
+        }
+
+        // If there are results, process and display them
+        rs.beforeFirst(); // Reset cursor position
+        while (rs.next()) {
+            // You might want to display the results in a different component or update an existing table
+            System.out.println("Found: " + rs.getString("firstName") + " " + rs.getString("lastName"));
+        }
+        rs.close();
+        pstmt.close();
+        con.close();
+
+    } catch (SQLException exp) {
+        JOptionPane.showMessageDialog(null, "SQL error: " + exp.getMessage(), "SQL Error", JOptionPane.ERROR_MESSAGE);
+        exp.printStackTrace();
+    }
+    }//GEN-LAST:event_searchJTextFieldActionPerformed
+
+    private void searchJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJButtonActionPerformed
+         String searchText = searchJTextField.getText().trim();
+    if (searchText.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please enter some text to search.", "No Search Criteria", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    String query = "SELECT * FROM AddressBook WHERE firstName LIKE ? OR lastName LIKE ? OR city LIKE ? OR state LIKE ?";
+
+    try (Connection con = DriverManager.getConnection(DB_URL, USER, PASS);
+         PreparedStatement pstmt = con.prepareStatement(query)) {
+        
+        pstmt.setString(1, "%" + searchText + "%");
+        pstmt.setString(2, "%" + searchText + "%");
+        pstmt.setString(3, "%" + searchText + "%");
+        pstmt.setString(4, "%" + searchText + "%");
+        ResultSet rs = pstmt.executeQuery();
+
+        if (!rs.isBeforeFirst()) {  // rs.isBeforeFirst() is false if there are no rows in the ResultSet
+            JOptionPane.showMessageDialog(null, "No results found for: " + searchText, "No Results", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        StringBuilder results = new StringBuilder("Search Results:\n");
+        while (rs.next()) {
+            results.append(rs.getString("firstName")).append(" ")
+                   .append(rs.getString("lastName")).append(", ")
+                   .append(rs.getString("city")).append(", ")
+                   .append(rs.getString("state")).append("\n");
+        }
+
+        JOptionPane.showMessageDialog(null, results.toString(), "Search Results", JOptionPane.INFORMATION_MESSAGE);
+
+    } catch (SQLException exp) {
+        JOptionPane.showMessageDialog(null, "SQL Error: " + exp.getMessage(), "SQL Error", JOptionPane.ERROR_MESSAGE);
+        exp.printStackTrace();
+    }
+    }//GEN-LAST:event_searchJButtonActionPerformed
+
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      *<pre>
      * Method       exists()
@@ -1214,6 +1337,9 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     private javax.swing.JMenuItem printMenuItem;
     private javax.swing.JButton quitJButton;
     private javax.swing.JMenuItem quitJMenuItem;
+    private javax.swing.JButton searchJButton;
+    private javax.swing.JLabel searchJLabel;
+    private javax.swing.JTextField searchJTextField;
     private javax.swing.JLabel stateJLabel;
     private javax.swing.JComboBox<String> statesJComboBox;
     private javax.swing.JLabel titleJLabel;
