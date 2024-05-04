@@ -2,7 +2,6 @@ package Lab5;
 import java.awt.*;
 import javax.swing.*;
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *<pre>
  * Class        Splash.java
  * Description  A class representing the Splash screen used by the 
  *              AddressBookGUI.java.
@@ -11,7 +10,6 @@ import javax.swing.*;
  * Course       CS 143
  * Date         4/5/2021     
  * History log  6/29/2007, 7/4/2012, 9/30/2018, 4/3/2020, 3/5/2021
- * </pre>
  * @author      <i>Niko Culevski</i>
  * @version 	%1% %5%
  * @see     	java.awt.Color
@@ -25,14 +23,12 @@ public class Splash extends JWindow
     JProgressBar loading = new JProgressBar();  //progress bar
     private int progress;
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Constructor  Splash()
      * Description  Sets duration to provided parameter.
      * @param       dur int
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 4/3/2020 
-     </pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/  
     public Splash(int dur)
     {
@@ -42,14 +38,12 @@ public class Splash extends JWindow
         loading.setStringPainted(true);
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       showSplash()
      * Description  A method to show a title screen in the center of the screen
      *              for the amount of time given in the constructor
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 4/3/2020 
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/  
     public void showSplash()
     {
@@ -92,7 +86,6 @@ public class Splash extends JWindow
         setVisible(false);
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       incProgress()
      * Description  Create inner class ProgressThread object, up, and start the
      *              thread
@@ -100,7 +93,6 @@ public class Splash extends JWindow
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 4/3/2020 
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public void incProgress(int amount)
     {
@@ -109,27 +101,23 @@ public class Splash extends JWindow
         up.thread.start();
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Class        ProgressThread
      * Description  Nested class that handles the progress bar
      * @author      <i>Niko Culevski</i>
      * @param       amount int
      * Date         4/3/2020
      * History Log  7/18/2018
-     *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     class ProgressThread 
     {
         private int amount;
         /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        *<pre>
         * Constructor  ProgressThread()
         * Description  Sets amount to provided parameter.
         * @param       dur int
         * @author      <i>Niko Culevski</i>
         * Date         4/5/2021
         * History Log  7/18/2018, 4/3/2020 
-        *</pre>
        *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
         public ProgressThread(int amount)
         {

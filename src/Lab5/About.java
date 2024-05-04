@@ -1,6 +1,5 @@
 package Lab5;
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *<pre>
  * Class        About.java
  * Description  About form for Address Book Application
  * Project      Address Book Application
@@ -12,12 +11,10 @@ package Lab5;
  * @author	<i>Niko Culevski</i>
  * @version 	%1% %4%
  * @see     	javax.swing.JDialog
- *</pre>
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 public class About extends javax.swing.JDialog
 {
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre> 
      * Constructor  JDialog to allow to select modal or modeless form
      * Description  Create the form as designed, center it, set the icon, 
      *              closeJButton as default.
@@ -27,7 +24,6 @@ public class About extends javax.swing.JDialog
      * @param       parent java.awt.Frame
      * @param       modal boolean
      * @see         javax.swing.JDialog
-     *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public About(java.awt.Frame parent, boolean modal)
     {
@@ -147,14 +143,12 @@ public class About extends javax.swing.JDialog
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       closeJButtonActionPerformed
      * Description  Closes the About form only.
      * Date         4/5/2021
      * History log  4/4/2016, 1/4/2019, 3/31/2020
      * @author      <i>Niko Culevski</i>
      * @param       evt java.awt.event.ActionEvent
-     *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void closeJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_closeJButtonActionPerformed
     {//GEN-HEADEREND:event_closeJButtonActionPerformed

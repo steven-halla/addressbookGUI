@@ -25,9 +25,7 @@ import javax.swing.JOptionPane;
 
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Class        CreateAddressBookDB.java
- * Description  A class representing the GUI used in the Address Book 
- *              Application. This program that stores, retrieves, adds, and 
- *              updates addresses using SQL statements in Address Book DB.
+ * Description  A class used to create the Address book DB
  * Platform     jdk 1.8.0_241; NetBeans IDE 11.3; PC Windows 10
  * Course       CS 143
  * Hourse       4 hours and 17 minutes
@@ -47,7 +45,7 @@ public class CreateAddressBookDB implements MySQLConnection {
     
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Method        main().
+ * Method       main().
  * Description  Reads data from external text file, creates the address table
  * Platform     jdk 1.8.0_241; NetBeans IDE 11.3; PC Windows 10
  * Course       CS 143
@@ -110,13 +108,11 @@ public class CreateAddressBookDB implements MySQLConnection {
     
 }
       /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       readFromTextFile()
      * Description  Reads text file and creates an arraylist with persons.
      * Date:        4/23/2019
      * @author      <i>Niko Culevski</i>
      * @param       textFile String
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private static void readFromTextFile(String textFile)
     {        

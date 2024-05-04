@@ -3,7 +3,6 @@ package Lab5;
 
 
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*<pre>
  * Class        MySQLConnection.java
  * Description  An interface representing the connections constants needed for
  *              the Address Book Application
@@ -16,7 +15,6 @@ package Lab5;
  * @version 	%1% %2%
  * @see     	javax.swing.JFrame
  * @see         java.awt.Toolkit 
- *</pre>
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 public interface MySQLConnection {
     //jdbc:mysql://localhost:3306/javabook?zeroDateTimeBehavior=CONVERT_TO_NULL// this url is not working

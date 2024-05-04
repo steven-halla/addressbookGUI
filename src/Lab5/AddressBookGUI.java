@@ -18,7 +18,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*<pre>
  * Class        AddressBookGUI.java
  * Description  A class representing the GUI used in the Address Book 
  *              Application. This program that stores, retrieves, adds, and 
@@ -32,7 +31,6 @@ import javax.swing.JOptionPane;
  * @version 	%1% %2%
  * @see     	javax.swing.JFrame
  * @see         java.awt.Toolkit 
- *</pre>
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 public class AddressBookGUI extends JFrame implements MySQLConnection
 {
@@ -44,13 +42,11 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     private final Color pink = Color.PINK;      // Background color for bad input textfield
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Constructor  AddressBookGUI()-default constructor
      * Description  Create an instance of the GUI form and sets icon image.
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
      * @author      <i>Niko Culevski</i>
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
     public AddressBookGUI() 
     {
@@ -84,7 +80,6 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         }
         catch(SQLException exp)
         {
-            // Show error message
 //            exp.printStackTrace();
             JOptionPane.showMessageDialog(null, "Input error -- SQL error.",
                     "SQL Error!", JOptionPane.ERROR_MESSAGE);
@@ -92,14 +87,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       display()
      * Description  Show information about the person passed as parameter.
      * @param       myPerson Person
      * @author      <i>Niko Culevski</i>
      * Date         4/3/2020
      * History Log  7/18/2018     
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void display(Person myPerson)
     {
@@ -114,13 +107,11 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       readFromTextFile()
      * Description  Reads text file and creates an arraylist with persons.
      * Date:        4/23/2019
      * @author      <i>Niko Culevski</i>
      * @param       textFile String
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void readFromTextFile(String textFile)
     {        
@@ -167,18 +158,15 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }    
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       createDB()
      * Description  Make connection, drop existing table, and create database 
      *              table.
      * Date:        4/23/2019
      * @author      <i>Niko Culevski</i>
      * @param       textFile String
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/   
     private void createDB()
             
-            //5 min mark video 2 touches on this
     {   
         try
         {            
@@ -234,14 +222,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
 
 
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       searchPerson()
      * Description  Search Person in DB by id.
      * Date:        4/23/2019
      * @author      <i>Niko Culevski</i>
      * @param       id iny
      * @return      myPerson Person
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
     private Person searchPerson(int id)
     {
@@ -529,6 +515,7 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
 
         personNumberJLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        searchJTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         searchJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchJTextFieldActionPerformed(evt);
@@ -638,27 +625,23 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       quitJButtonActionPerformed()
      * Description  Event handler to end the application.
      * @author      <i>Niko Culevski</i>
      * Date         4/3/2020
      * History Log  7/18/2018     
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void quitJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_quitJButtonActionPerformed
     {//GEN-HEADEREND:event_quitJButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_quitJButtonActionPerformed
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       nextJButtonActionPerformed()
      * Description  Move to next address record. 
      * @param       evt java.awt.event.ActionEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void nextJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nextJButtonActionPerformed
     {//GEN-HEADEREND:event_nextJButtonActionPerformed
@@ -718,14 +701,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_nextJButtonActionPerformed
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       previousJButtonActionPerformed()
      * Description  Move to previous address record. 
      * @param       evt java.awt.event.ActionEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void previousJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_previousJButtonActionPerformed
     {//GEN-HEADEREND:event_previousJButtonActionPerformed
@@ -785,14 +766,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_previousJButtonActionPerformed
 
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       lastJButtonActionPerformed()
      * Description  Move to last address record. 
      * @param       evt java.awt.event.ActionEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void lastJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_lastJButtonActionPerformed
     {//GEN-HEADEREND:event_lastJButtonActionPerformed
@@ -823,14 +802,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_lastJButtonActionPerformed
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       firstJButtonActionPerformed()
      * Description  Move to last address record. 
      * @param       evt java.awt.event.ActionEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void firstJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_firstJButtonActionPerformed
     {//GEN-HEADEREND:event_firstJButtonActionPerformed
@@ -863,14 +840,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_firstJButtonActionPerformed
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       addJButtonActionPerformed()
      * Description  Add a new person. 
      * @param       evt java.awt.event.ActionEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_addJButtonActionPerformed
     {//GEN-HEADEREND:event_addJButtonActionPerformed
@@ -936,14 +911,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_addJButtonActionPerformed
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       deleteJButtonActionPerformed()
      * Description  Delete the displayed person. 
      * @param       evt java.awt.event.ActionEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void deleteJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_deleteJButtonActionPerformed
     {//GEN-HEADEREND:event_deleteJButtonActionPerformed
@@ -988,14 +961,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_deleteJButtonActionPerformed
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       editJButtonActionPerformed()
      * Description  Edit the displayed person. 
      * @param       evt java.awt.event.ActionEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void editJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_editJButtonActionPerformed
     {//GEN-HEADEREND:event_editJButtonActionPerformed
@@ -1061,14 +1032,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         }
     }//GEN-LAST:event_editJButtonActionPerformed
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       zipJFormattedTextFieldFocusGained()
      * Description  Highlight zipJFormattedTextField as focus is gained.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void zipJFormattedTextFieldFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_zipJFormattedTextFieldFocusGained
     {//GEN-HEADEREND:event_zipJFormattedTextFieldFocusGained
@@ -1076,14 +1045,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_zipJFormattedTextFieldFocusGained
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       zipJFormattedTextFieldFocusLost()
      * Description  Change color of zipJTextField according to valid input.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void zipJFormattedTextFieldFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_zipJFormattedTextFieldFocusLost
     {//GEN-HEADEREND:event_zipJFormattedTextFieldFocusLost
@@ -1095,14 +1062,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_zipJFormattedTextFieldFocusLost
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       quitJMenuItemActionPerformed()
      * Description  Event handler to end the application. Calls the quitJButton
      *              doClick event handler,
      * @author      <i>Niko Culevski</i>
      * Date         4/3/2020
      * History Log  7/18/2018     
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void quitJMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_quitJMenuItemActionPerformed
     {//GEN-HEADEREND:event_quitJMenuItemActionPerformed
@@ -1110,14 +1075,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_quitJMenuItemActionPerformed
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       printJMenuItemActionPerformed()
      * Description  Event handler to print the for as a GUI. Calls the
      *              PrintUtilities class printComponent method.
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void printMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_printMenuItemActionPerformed
     {//GEN-HEADEREND:event_printMenuItemActionPerformed
@@ -1125,14 +1088,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_printMenuItemActionPerformed
 
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       aboutJMenuItemActionPerformed()
      * Description  Create an About form and show it. 
      * @param       evt java.awt.event.KeyEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void aboutJMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_aboutJMenuItemActionPerformed
     {//GEN-HEADEREND:event_aboutJMenuItemActionPerformed
@@ -1188,6 +1149,16 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }
     }//GEN-LAST:event_searchJTextFieldActionPerformed
 
+    private void clearTextFields() {
+    firstJTextField.setText("");
+    lastJTextField.setText("");
+    ageJTextField.setText("");
+    addressJTextField.setText("");
+    cityJTextField.setText("");
+    statesJComboBox.setSelectedIndex(0); // Adjust as necessary for your default state
+    zipJFormattedTextField.setText("");
+}
+    
     private void searchJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchJButtonActionPerformed
          String searchText = searchJTextField.getText().trim();
     if (searchText.isEmpty()) {
@@ -1206,21 +1177,25 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         pstmt.setString(4, "%" + searchText + "%");
         ResultSet rs = pstmt.executeQuery();
 
-        if (!rs.isBeforeFirst()) {  // rs.isBeforeFirst() is false if there are no rows in the ResultSet
+        if (!rs.next()) {  // No results found
             JOptionPane.showMessageDialog(null, "No results found for: " + searchText, "No Results", JOptionPane.INFORMATION_MESSAGE);
+            clearTextFields();  // Clear the text fields if no results are found
             return;
         }
 
-        StringBuilder results = new StringBuilder("Search Results:\n");
-        while (rs.next()) {
-            results.append(rs.getString("firstName")).append(" ")
-                   .append(rs.getString("lastName")).append(", ")
-                   .append(rs.getString("city")).append(", ")
-                   .append(rs.getString("state")).append("\n");
-        }
+        // Display the first result found in the text fields
+        display(new Person(
+            rs.getInt("personID"),
+            rs.getString("firstName"),
+            rs.getString("lastName"),
+            rs.getInt("age"),
+            rs.getString("address"),
+            rs.getString("city"),
+            rs.getString("state"),
+            rs.getString("zip")
+        ));
 
-        JOptionPane.showMessageDialog(null, results.toString(), "Search Results", JOptionPane.INFORMATION_MESSAGE);
-
+        rs.close();
     } catch (SQLException exp) {
         JOptionPane.showMessageDialog(null, "SQL Error: " + exp.getMessage(), "SQL Error", JOptionPane.ERROR_MESSAGE);
         exp.printStackTrace();
@@ -1228,14 +1203,12 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
     }//GEN-LAST:event_searchJButtonActionPerformed
 
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       exists()
      * Description  Check if parameter-given person exists in the DB. 
      * @param       myPerson Person
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private boolean exists(Person myPerson)
     {
@@ -1253,20 +1226,18 @@ public class AddressBookGUI extends JFrame implements MySQLConnection
         return found;
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    *<pre>
      * Method       main()
      * Description  Displays splash screen and the main Address Book DB GUI form.
      * @param       args are the command line strings
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
-     *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static void main(String args[])
     {
         // Show splash screen
-//        Splash mySplash = new Splash(4000);     // duration = 5 seconds
-//        mySplash.showSplash();                  // show splash screen   
+        Splash mySplash = new Splash(4000);     // duration = 5 seconds
+        mySplash.showSplash();                  // show splash screen   
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

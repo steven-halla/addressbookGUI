@@ -3,7 +3,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *<pre>
  * Class        Validation
  * File         Validation.java
  * Description  A class that validates information passed to it.
@@ -12,13 +11,11 @@ import java.util.regex.Pattern;
  * History log  5/8/2016
  * @author      <i>Niko Culevski</i>
  * @version     1.2
- *</pre>
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 public class Validation 
 {   
     public static final double DOUBLE_RANGE = 1E-9;      
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isLettersOnly()
      * Description  Returns true if the String is made of only letters.
      * Date         4/30/2021
@@ -26,7 +23,6 @@ public class Validation
      * @author      <i>Niko Culevski</i>
      * @param       myString String
      * @return      true/false boolean
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static boolean isLettersOnly(String myString)
     {
@@ -45,7 +41,6 @@ public class Validation
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isNumeric()
      * Description  Returns true if the String is made of only numbers
      * Date         4/30/2021
@@ -53,7 +48,6 @@ public class Validation
      * @author      <i>Niko Culevski</i>
      * @param       myString String
      * @return      true/false boolean
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static boolean isNumeric(String myString)
     {
@@ -62,7 +56,6 @@ public class Validation
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isInteger()
      * Description  Validates that entered value is an integer
      * @return      boolean
@@ -72,7 +65,6 @@ public class Validation
      * @see         java.util.regex.Pattern
      * Date         4/5/2021
      * History log  6/10/2013, 4/7/2020
-     *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static boolean isInteger(String fieldValue)
     {
@@ -82,7 +74,6 @@ public class Validation
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isInteger()
      * Description  Overloaded, validates that entered value is an integer
      *              within the required range
@@ -95,7 +86,6 @@ public class Validation
      * @see         java.util.regex.Pattern
      * Date         4/5/2021
      * History log  6/10/2013, 4/7/2020
-     *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static boolean isInteger(String fieldValue, int lower, int upper)
     {
@@ -122,7 +112,6 @@ public class Validation
         return result;           
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isPhoneNumber()
      * Description  Returns true if the String is a valid phone number
      * Date         4/30/2021
@@ -130,7 +119,6 @@ public class Validation
      * @author      <i>Niko Culevski</i>
      * @param       phoneNum String
      * @return      true/false boolean
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static boolean isPhoneNumber(String phoneNum)
     {
@@ -152,7 +140,6 @@ public class Validation
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isValidPhone()
      * Description  Validates that JTextField is a valid North American phone
      *              number with the following phone formats:
@@ -165,7 +152,6 @@ public class Validation
      *              12-12-111: false
      * Date         4/7/2020
      * History log  6/10/2013
-     *</pre>
      * @return      true/false boolean
      * @param       fieldValue JTextField
      * @author      <i>Niko Culevski</i>
@@ -181,7 +167,6 @@ public class Validation
         return mat.matches();
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     * <pre>
      * Method       isEmail()
      * Description  Returns true if the String is a valid email.
      * Date         4/30/2021
@@ -189,7 +174,6 @@ public class Validation
      * @author      <i>Niko Culevski</i>
      * @param       myString String
      * @return      true/false boolean
-     * </pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static boolean isEmail(String myString)
     {
@@ -198,7 +182,6 @@ public class Validation
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isValidEmail()
      * Description  Validates that JTextField is a valid email with the 
      *              following email formats:
@@ -209,7 +192,6 @@ public class Validation
      *              user'name@domain.co.in true
      * Date         4/7/2020
      * History log  6/10/2013, 1/4/2014
-     *</pre>
      * @return      boolean
      * @param       fieldValue JTextField
      * @author      <i>Niko Culevski</i>
@@ -226,7 +208,6 @@ public class Validation
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isValidZip()
      * Description  Validates that JTextField is a valid zip code consisting of 
      *              only 5 digits or 5 digits plus - and 4 more digits.
@@ -238,7 +219,6 @@ public class Validation
      * @see         javax.swing.JTextField
      * Date         4/5/2021
      * History log  6/10/2013, 4/7/2020
-     * </pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static boolean isValidZip(String input)
     {
@@ -253,7 +233,6 @@ public class Validation
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       toNameFormat()
      * Description  Returns a string in proper name format.
      * Date         4/30/2021
@@ -261,7 +240,6 @@ public class Validation
      * @author      <i>Niko Culevski</i>
      * @param       str String
      * @return      String
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static String toNameFormat(String str)
     {
@@ -280,7 +258,6 @@ public class Validation
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isValidName()
      * Description  Validates that JTextField is a valid name consisting of 
      *              only letters and spaces with minimum 2 and maximum 40
@@ -293,7 +270,6 @@ public class Validation
      * @see         javax.swing.JTextField
      * Date         4/5/2021
      * History log  6/10/2013, 4/7/2020
-     * </pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static boolean isValidName(String input)
     {
@@ -311,7 +287,6 @@ public class Validation
         return result;
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isValidName()--overloaded
      * Description  Validates that JTextField is a valid name consisting of 
      *              only letters and spaces with minimum and maximum as provide
@@ -326,7 +301,6 @@ public class Validation
      * @see         javax.swing.JTextField
      * Date         4/5/2021
      * History log  6/10/2013, 4/7/2020
-     * </pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static boolean isValidName(String input, int lower, int upper)
     {
@@ -342,7 +316,6 @@ public class Validation
         return result;
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       removeSpaces()
      * Description  Returns string with all spaces removed
      * Date         4/30/2021
@@ -350,7 +323,6 @@ public class Validation
      * @author      <i>Niko Culevski</i>
      * @param       str String
      * @return      String
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static String removeSpaces(String str)
     {
@@ -358,7 +330,6 @@ public class Validation
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       toPhoneFormat()
      * Description  Returns string with all (yyy) yyy-yyyy format
      * Date         4/30/2021
@@ -366,7 +337,6 @@ public class Validation
      * @author      <i>Niko Culevski</i>
      * @param       str String
      * @return      String
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static String toPhoneFormat(String str)
     {
@@ -381,7 +351,6 @@ public class Validation
     }
         
    /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       isCloseEnough()
      * Description  Determines if a double value is equal to another value 
      *              considering the inaccuracy of a double value.
@@ -391,7 +360,6 @@ public class Validation
      * @param       checkedVal  value being compared
      * @param       closeToVal value being compared to
      * @return      boolean
-     *</pre>
      *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public static boolean isCloseEnough(double checkedVal, double closeToVal)
     {

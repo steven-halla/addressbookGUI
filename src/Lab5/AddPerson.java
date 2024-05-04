@@ -2,7 +2,6 @@ package Lab5;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*<pre>
  * Class        AddPerson.java
  * Description  A class used to both add and edit a person into the DB.
  * Course       CS 143
@@ -11,8 +10,6 @@ import javax.swing.JOptionPane;
   History Log   7/18/2018, 5/7/2020, 4/5/2021
  * @author	<i>Niko Culevski</i>
  * @version 	%1% %2%
- * @see     	javax.swing.Dialog
- *</pre>
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 public class AddPerson extends javax.swing.JDialog
 {
@@ -30,14 +27,12 @@ public class AddPerson extends javax.swing.JDialog
     private final Color pink = Color.PINK;      // Background color for bad input textfield
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Constructor  AddPerson()--default constructor
      * Description  Create an instance of the GUI form and sets icon image.
      *              Used for Add Person.
      * Date         4/5/2021
      * History Log  7/18/2018, 5/7/2020
      * @author      <i>Niko Culevski</i>
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
     public AddPerson()
     {
@@ -53,7 +48,6 @@ public class AddPerson extends javax.swing.JDialog
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Constructor  AddPerson()--overloaded constructor
      * Description  Create an instance of the GUI form and sets icon image.
      *              Used for Edit Person.
@@ -61,7 +55,6 @@ public class AddPerson extends javax.swing.JDialog
      * History Log  7/18/2018, 5/7/2020
      * @author      <i>Niko Culevski</i>
      * @param       friend Person
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public AddPerson(Person friend)
     {
@@ -78,7 +71,6 @@ public class AddPerson extends javax.swing.JDialog
     }
     
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Constructor  AddPerson()--overloaded constructor
      * Description  Create an instance of the GUI form and sets icon image.
      *              Used for Edit Person.
@@ -87,7 +79,6 @@ public class AddPerson extends javax.swing.JDialog
      * @author      <i>Niko Culevski</i>
      * @param       parent Frame
      * @param       modal  boolean
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public AddPerson(java.awt.Frame parent, boolean modal)
     {
@@ -99,13 +90,11 @@ public class AddPerson extends javax.swing.JDialog
         this.getRootPane().setDefaultButton(addJButton);                        
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     * <pre>
      * Method:      getPerson()
      * Description: Returns the person added or edited.
      * Date:        5/12/16
      * @author      Niko Culevski
      * @return      Person
-     *</pre>
      * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     public Person getPerson()
     {
@@ -344,27 +333,23 @@ public class AddPerson extends javax.swing.JDialog
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       quitJButtonActionPerformed()
      * Description  Dispose the Add form. Uses the Validation class to
      *              validate input fields.
      * Date         4/26/2021
      * @param       evt java.awt.event.ActionEvent
      * @author      <i>Niko Culevski</i>
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void quitJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_quitJButtonActionPerformed
     {//GEN-HEADEREND:event_quitJButtonActionPerformed
         this.dispose();
     }//GEN-LAST:event_quitJButtonActionPerformed
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       addJButtonActionPerformed()
      * Description  Add new person.
      * Date         4/26/2021
      * @param       evt java.awt.event.ActionEvent
      * @author      <i>Niko Culevski</i>
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_addJButtonActionPerformed
     {//GEN-HEADEREND:event_addJButtonActionPerformed
@@ -438,28 +423,24 @@ public class AddPerson extends javax.swing.JDialog
         }
     }//GEN-LAST:event_addJButtonActionPerformed
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       zipJFormattedTextFieldFocusGained()
      * Description  Highlight zipJFormattedTextField as focus is gained.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void zipJFormattedTextFieldFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_zipJFormattedTextFieldFocusGained
     {//GEN-HEADEREND:event_zipJFormattedTextFieldFocusGained
         zipJFormattedTextField.selectAll();
     }//GEN-LAST:event_zipJFormattedTextFieldFocusGained
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       zipJFormattedTextFieldFocusLost()
      * Description  Change color of zipJTextField according to valid input.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void zipJFormattedTextFieldFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_zipJFormattedTextFieldFocusLost
     {//GEN-HEADEREND:event_zipJFormattedTextFieldFocusLost
@@ -470,14 +451,12 @@ public class AddPerson extends javax.swing.JDialog
             zipJFormattedTextField.setBackground(pink);
     }//GEN-LAST:event_zipJFormattedTextFieldFocusLost
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       firstJTextFieldFocusGained()
      * Description  Highlight firstJTextFieldFocusGained as focus is gained.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void firstJTextFieldFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_firstJTextFieldFocusGained
     {//GEN-HEADEREND:event_firstJTextFieldFocusGained
@@ -502,28 +481,24 @@ public class AddPerson extends javax.swing.JDialog
             firstJTextField.setBackground(pink);
     }//GEN-LAST:event_firstJTextFieldFocusLost
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       lastJTextFieldFocusGained()
      * Description  Highlight lastJTextField as focus is gained.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void lastJTextFieldFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_lastJTextFieldFocusGained
     {//GEN-HEADEREND:event_lastJTextFieldFocusGained
         lastJTextField.selectAll();
     }//GEN-LAST:event_lastJTextFieldFocusGained
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       lastJTextFieldFocusLost()
      * Description  Change color of lastJTextField according to valid input.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void lastJTextFieldFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_lastJTextFieldFocusLost
     {//GEN-HEADEREND:event_lastJTextFieldFocusLost
@@ -534,28 +509,24 @@ public class AddPerson extends javax.swing.JDialog
             lastJTextField.setBackground(pink);
     }//GEN-LAST:event_lastJTextFieldFocusLost
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       ageJTextFieldFocusGained()
      * Description  Highlight ageJTextField as focus is gained.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void ageJTextFieldFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_ageJTextFieldFocusGained
     {//GEN-HEADEREND:event_ageJTextFieldFocusGained
         ageJTextField.selectAll();
     }//GEN-LAST:event_ageJTextFieldFocusGained
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       ageJTextFieldFocusLost()
      * Description  Change color of lastJTextField according to valid input.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void ageJTextFieldFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_ageJTextFieldFocusLost
     {//GEN-HEADEREND:event_ageJTextFieldFocusLost
@@ -566,28 +537,24 @@ public class AddPerson extends javax.swing.JDialog
             ageJTextField.setBackground(pink);
     }//GEN-LAST:event_ageJTextFieldFocusLost
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       cityJTextFieldFocusGained()
      * Description  Highlight cityJTextField as focus is gained.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void cityJTextFieldFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_cityJTextFieldFocusGained
     {//GEN-HEADEREND:event_cityJTextFieldFocusGained
         cityJTextField.selectAll();
     }//GEN-LAST:event_cityJTextFieldFocusGained
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       cityJTextFieldFocusLost()
      * Description  Change color of cityJTextField according to valid input.
      * @parem       java.awt.event.FocusEvent
      * @author      <i>Niko Culevski</i>
      * Date         4/5/2021
      * History log  8/24/2016, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     private void cityJTextFieldFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_cityJTextFieldFocusLost
     {//GEN-HEADEREND:event_cityJTextFieldFocusLost

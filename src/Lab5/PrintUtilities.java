@@ -6,7 +6,6 @@ import static java.awt.print.Printable.NO_SUCH_PAGE;
 import static java.awt.print.Printable.PAGE_EXISTS;
 
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *<pre>
  * File    
  * Description  A simple utility class that lets you very simply print an
  *              an arbitrary component. Just pass the component to the
@@ -21,28 +20,24 @@ import static java.awt.print.Printable.PAGE_EXISTS;
  *              PrintUtilities.printComponent(componentToBePrinted).
  *              May be freely used or adapted.
  * @author      7/99 <i>Marty Hall</i>, http://www.apl.jhu.edu/~hall/java/
- *</pre>
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/  
 public class PrintUtilities implements Printable
 {
     private final double SCALE_FACTOR = 1.0;
     private Component componentToBePrinted;
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Constructor  PrintUtilities()
      * Description  Sets componentToBePrinted to provided parameter.
      * @param       componentToBePrinted Component
      * @author      <i>Marty Hall</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/  
     public PrintUtilities(Component componentToBePrinted)
     {
         this.componentToBePrinted = componentToBePrinted;
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Constructor  printComponent()
      * Description  Creates an unnamed instance of the PrintUtilities an calls
      *              its print method.
@@ -50,21 +45,18 @@ public class PrintUtilities implements Printable
      * @author      <i>Marty Hall</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 4/3/2020 
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
     public static void printComponent(Component c)
     {
         new PrintUtilities(c).print();
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Constructor  print()
      * Description  Creates an instance of the PrinterJob an calls its 
      *              setPrintable and print methods.
      * @author      <i>Marty Hall</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
     public void print() 
     {
@@ -81,7 +73,6 @@ public class PrintUtilities implements Printable
             }
     }
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Constructor  print()
      * Description  Creates an instance of the PrinterJob an calls its 
      *              setPrintable and print methods.
@@ -91,7 +82,6 @@ public class PrintUtilities implements Printable
      * @author      <i>Marty Hall</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     @Override
     public int print(Graphics g, PageFormat pageFormat, int pageIndex)
@@ -113,7 +103,6 @@ public class PrintUtilities implements Printable
     }
 
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       disableDoubleBuffering()
      * Description  The speed and quality of printing suffers dramatically if
      *              any of the containers have double buffering turned on. So 
@@ -123,7 +112,6 @@ public class PrintUtilities implements Printable
      * @author      <i>Marty Hall</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 4/3/2020
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
     public static void disableDoubleBuffering(Component c) 
     {
@@ -134,14 +122,12 @@ public class PrintUtilities implements Printable
     /** Re-enables double buffering globally.
        * @param c  Component*/
     /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     *<pre>
      * Method       enableDoubleBuffering 
      * Description  Re-enables double buffering globally.         
      * @param       c Component
      * @author      <i>Marty Hall</i>
      * Date         4/5/2021
      * History Log  7/18/2018, 4/3/2020  
-    *</pre>
     *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
     public static void enableDoubleBuffering(Component c) 
     {
